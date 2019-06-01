@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates|Montserrat:300,300i,400,700&display=swap');
+//Global 
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+//Colores
+.orange {
+    color: #F06702;
+}
+.blue {
+    color: #259BC6;
+}
+.gray {
+    color: #CCC5B9;
+}
+.black {
+    color: #000000;
+}
+.white {
+    color: #FFFCF2
+}
+
+
+//Align
+.center {
+    text-align: center
+}
+
+//Margin
+.no-margin {
+    margin: 0px;
+}
+.mg-top-5 {
+    margin-top: 5px;
+}
+.mg-top-10 {
+    margin-top: 10px;
+}
+.mg-top-20 {
+    margin-top: 20px;
+}
+.mg-30 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.mg-top-30 {
+    margin-top: 30px;
+}
+.mg-top-40 {
+    margin-top: 40px;
+}
+
+//Padding
+.padding-top-5 {
+    padding-top: 5px;
+}
+.padding-top-20 {
+    padding-top: 20px;
+}
+.padding-40 {
+    padding-left: 40px;
+    padding-right: 40px; 
+}
+.padding-top-40 {
+    padding-top: 40px;
+}
+.no-padding {
+    padding: 0px;
+}
+.no-padding-top {
+    padding-top: 0px;
+}
+//Font-style
+.bold {
+    font-weight: 700
+}
+.light {
+    font-weight: 300
+}
+.fontt {
+    font-size: 18px;
+}
+.bg-transparent {
+    background-color: transparent;
+}
