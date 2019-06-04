@@ -5,7 +5,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'cuenta', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'cuenta', loadChildren: './cuenta/cuenta.module#CuentaPageModule' }
+  { path: 'cuenta', loadChildren: './cuenta/cuenta.module#CuentaPageModule' },
+  { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' },
+
 ];
 
 @NgModule({
