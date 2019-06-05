@@ -12,24 +12,24 @@ export class AppComponent {
   public appPages = [
     {
       title: 'Inicio',
-      url:'',
+      url:'/home',
       icon: 'home'
     },
     {
       title: 'Cambiar contraseña',
-      url: '',
+      url: '/cambiarcontra',
       class: 'orange',
       icon: 'lock'
     },
     {
       title: 'Cambiar número',
-      url:'',
+      url:'/cambiarnum',
       icon: 'phone-portrait',
       color: '#F06702'
     },
     {
       title: 'Eliminar mi cuenta',
-      url:'',
+      url:'/eliminar',
       icon: 'trash'
     },
     {

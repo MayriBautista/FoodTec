@@ -10,8 +10,8 @@
           <ion-content padding>
             <ion-list>
               <ion-menu-toggle *ngFor="let p of appPages">
-                <ion-item>
-                  <ion-icon class="orange" slot="start" [name]="p.icon"></ion-icon> 
+                <ion-item [routerLink]="p.url" [routerDirection]="'root'">
+                  <ion-icon class="orange fontt" slot="start" [name]="p.icon"></ion-icon> 
                   <ion-label>{{p.title}}</ion-label>            
                 </ion-item>
               </ion-menu-toggle>
