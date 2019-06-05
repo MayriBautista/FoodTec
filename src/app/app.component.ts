@@ -16,14 +16,16 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Contraseña',
-      url: '/list',
+      title: 'Cambiar contraseña',
+      url: '',
+      class: 'orange',
       icon: 'lock'
     },
     {
       title: 'Cambiar número',
       url:'',
-      icon: 'phone-portrait'
+      icon: 'phone-portrait',
+      color: '#F06702'
     },
     {
       title: 'Eliminar mi cuenta',

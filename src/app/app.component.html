@@ -2,8 +2,8 @@
   <ion-split-pane>
     <ion-menu>
         <ion-header>
-            <ion-toolbar>
-              <ion-title>Cuenta</ion-title>
+            <ion-toolbar class="new-background-color">
+              <ion-title class="white">Perfil</ion-title>
             </ion-toolbar>
           </ion-header>
           
@@ -11,7 +11,7 @@
             <ion-list>
               <ion-menu-toggle *ngFor="let p of appPages">
                 <ion-item>
-                  <ion-icon slot="start" [name]="p.icon"></ion-icon> 
+                  <ion-icon class="orange" slot="start" [name]="p.icon"></ion-icon> 
                   <ion-label>{{p.title}}</ion-label>            
                 </ion-item>
               </ion-menu-toggle>
