@@ -31,12 +31,6 @@
           </div>
       </ion-item>
       <ion-item>
-          <ion-icon color="food" name="calendar"></ion-icon>
-          <div style="margin-left: 4%;">
-           <h6 color="warning">Historial</h6>
-          </div>
-      </ion-item>
-      <ion-item>
           <ion-icon color="food" name="power"></ion-icon>
           <div style="margin-left: 4%;">
            <h6 color="warning">Cerrar Sesion</h6>
@@ -66,15 +60,131 @@
 <ion-content>
 
     <ion-toolbar>
-        <ion-segment (ionChange)="segmentChanged($event)">
-          <ion-segment-button value="espera" (ionSelect)="segmentButtonClicked($event)">
+        <ion-segment>
+          <ion-segment-button (click)="eleccion(1)">
             <ion-icon name="time"></ion-icon>
           </ion-segment-button>
-          <ion-segment-button value="entregado" (ionSelect)="segmentButtonClicked($event)">
+          <ion-segment-button (click)="eleccion(2)">
             <ion-icon name="albums"></ion-icon>
           </ion-segment-button>
         </ion-segment>
       </ion-toolbar> 
+
+
+      <div [hidden]="espera">
+        <ion-label class="bold center padding-top-20">PEDIDO EN ESPERA</ion-label>
+        <ion-img style="padding-left:10%; padding-right: 10%; margin-top: 5%; " src="assets/icon/paste.jpg"></ion-img>
+        <div class="mgl-30 center">
+        <ion-grid>
+            <ion-row>
+              <ion-col align-self-start>
+                <div class="left bold">
+                    <ion-icon name="ios-time"></ion-icon> Pedido en espera
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="left italic">
+                  11 de junio de 2019 1:52 p.m.
+                  Pedido #RP2
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <div class="left">
+                    Paste Rey 
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="left italic">
+                    1 pieza 
+                  </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <div class="left">
+                    Repartidor 
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="left italic">
+                    Carlos Herrera
+                  </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="left">
+                  Total 
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="left italic">
+                  $18.00
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div [hidden]="entregado">
+        <ion-label class="bold center padding-top-20">PEDIDO ENTREGADO</ion-label>
+        <ion-img style="padding-left:10%; padding-right: 10%; margin-top: 5%; " src="assets/icon/plauchu.jpg"></ion-img>
+        <div class="mgl-30 center">
+        <ion-grid>
+            <ion-row>
+              <ion-col align-self-start>
+                <div class="left bold">
+                    <ion-icon name="checkmark-circle"></ion-icon> Pedido entregado
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="left italic">
+                  7 de junio de 2019 3:25 p.m.
+                  Pedido #PL45
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <div class="left">
+                    Mollete sencillo
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="left italic">
+                    1 pieza 
+                  </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <div class="left">
+                    Repartidor 
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="left italic">
+                    Eduardo Jiménez
+                  </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="left">
+                  Total 
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="left italic">
+                  $34.00
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
 
 </ion-content>
 

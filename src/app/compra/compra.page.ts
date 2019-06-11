@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { HttpmayriService } from '../httpmayri.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compra',
@@ -7,8 +9,27 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./compra.page.scss'],
 })
 export class CompraPage {
+  idPago:string = "1";
+  idUsuario:string = "1";
+  idRestaurante:string = "1";
+  totalPedido:string = "1";
 
-  constructor(private menu: MenuController) { 
+  constructor(private menu: MenuController, public http:HttpmayriService, public route: Router) { 
+    this.comprar();
+  }
+
+  comprar() {
+    console.log(this.idPago+this.idUsuario+this.idRestaurante+this.totalPedido);
+    this.http.insertarProducto(this.idPago,this.idUsuario,this.idRestaurante,this.totalPedido).then(
+      (inv) => {
+        console.log(inv);
+        
+      },
+      (error) => {
+        console.log("Error"+JSON.stringify(error));
+        alert("Verifica que cuentes con internet");
+      }
+    );
   }
 
   openFirst() {
