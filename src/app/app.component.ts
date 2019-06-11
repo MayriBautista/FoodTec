@@ -16,6 +16,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Perfil',
+      url:'/cuenta',
+      icon: 'person'
+    },
+    {
       title: 'Cambiar contraseña',
       url: '/cambiarcontra',
       class: 'orange',

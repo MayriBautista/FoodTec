@@ -1,0 +1,82 @@
+<ion-menu side="start" menuId="first">
+  <ion-header>
+    <ion-toolbar color="food">
+      <ion-title>FoodTec</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon color="food" name="home"></ion-icon>
+        <div style="margin-left: 4%;">
+         <h6 color="warning"> Inicio</h6>
+        </div>
+      </ion-item>
+      <ion-item>
+          <ion-icon color="food" name="person"></ion-icon>
+          <div style="margin-left: 4%;">
+           <h6 color="warning">Perfil</h6>
+          </div>
+      </ion-item>
+      <ion-item>
+            <ion-icon color="food" name="card"></ion-icon>
+            <div style="margin-left: 4%;">
+             <h6 color="warning">Billetera</h6>
+            </div>
+      </ion-item>
+      <ion-item>
+          <ion-icon color="food" name="logo-dropbox"></ion-icon>
+          <div style="margin-left: 4%;">
+           <h6 color="warning">Pedidos Actuales</h6>
+          </div>
+      </ion-item>
+      <ion-item>
+          <ion-icon color="food" name="calendar"></ion-icon>
+          <div style="margin-left: 4%;">
+           <h6 color="warning">Historial</h6>
+          </div>
+      </ion-item>
+      <ion-item>
+          <ion-icon color="food" name="power"></ion-icon>
+          <div style="margin-left: 4%;">
+           <h6 color="warning">Cerrar Sesion</h6>
+          </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+
+<ion-header>
+<ion-toolbar color="food">
+    <ion-buttons slot="start">
+        <ion-button (click)="openFirst()">
+          <ion-icon name="menu" ></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  <ion-title>
+    Pedidos
+  </ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center;">
+
+<ion-content>
+
+    <ion-toolbar>
+        <ion-segment (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="espera" (ionSelect)="segmentButtonClicked($event)">
+            <ion-icon name="time"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="entregado" (ionSelect)="segmentButtonClicked($event)">
+            <ion-icon name="albums"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar> 
+
+</ion-content>
+
+
+<ion-router-outlet main></ion-router-outlet>

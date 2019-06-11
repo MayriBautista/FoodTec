@@ -1,9 +1,54 @@
+<!-- Back button with a default href -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>compra</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar class="new-background-color">
+      <ion-buttons slot="start" class="white">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="white">
+          Compra
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
+  <div class="padding-top-20" style="text-align: center;">
+    <ion-label class="bold">PASTE REY</ion-label>
+  </div>
+  <div class="center padding-top-10 mg-5" style="text-align: center;">
+      <ion-label class="italic fontc">Ingredientes:</ion-label>
+      <ion-label text-wrap class="center mg-5 fontc">
+        Jamón, salchicha, queso amarillo, queso blanco y chorizo.
+      </ion-label>
+  </div>   
+  <div class="padding-top-10" style="text-align: center;">
+    <ion-label>MX$18</ion-label>
+  </div> 
 
+  <div style="text-align: left;" class="mg-10 padding-top-20">
+    <ion-label class="bold left mg-left-20 fontt">Instrucciones especiales:</ion-label>
+    <ion-item >
+      <ion-textarea class="fontt" placeholder="Ej. Sin cebolla, etc..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <div style="text-align: left;" class="mg-10 padding-top-10">
+      <ion-label class="bold left mg-left-20 fontt">Especificaciones de ubicación:</ion-label>
+      <ion-item class="no-padding">
+        <ion-textarea class="fontt" placeholder="Ej. Unidad de Sistemas y Computación, etc..."></ion-textarea>
+      </ion-item>
+  </div>
+
+  <div class="mg-20">      
+    <ion-item>
+        <ion-label position="fixed">Cantidad:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+  </div>
+
+  <div class="padding-top-30 center">
+      <ion-button shape="round" class="new-background-color">Comprar</ion-button>
+  </div>
 </ion-content>
+
+
+<ion-router-outlet main></ion-router-outlet>

@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
+import { MenuController, IonSegment } from '@ionic/angular';
 
 @Component({
-  selector: 'app-billetera',
-  templateUrl: './billetera.page.html',
-  styleUrls: ['./billetera.page.scss'],
+  selector: 'app-pedidos',
+  templateUrl: './pedidos.page.html',
+  styleUrls: ['./pedidos.page.scss'],
 })
-export class BilleteraPage {
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
+export class PedidosPage {
+  segmentButtonClicked(ev: any) {
+    console.log('Segment button clicked', ev);
   }
 
   constructor(private menu: MenuController) { 
