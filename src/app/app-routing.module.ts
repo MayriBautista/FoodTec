@@ -12,6 +12,11 @@ const routes: Routes = [
   { path: 'eliminar', loadChildren: './eliminar/eliminar.module#EliminarPageModule' },
   { path: 'billetera', loadChildren: './billetera/billetera.module#BilleteraPageModule' },
   { path: 'menurestaurante', loadChildren: './menu-restaurante/menu-restaurante.module#MenuRestaurantePageModule' },
+  { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' },
+  { path: 'compraexit', loadChildren: './compraexit/compraexit.module#CompraexitPageModule' },
+  { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },
+
+
 
 
 

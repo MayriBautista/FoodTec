@@ -31,12 +31,6 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-icon color="food" name="calendar"></ion-icon>
-            <div style="margin-left: 4%;">
-             <h6 color="warning">Historial</h6>
-            </div>
-        </ion-item>
-        <ion-item>
             <ion-icon color="food" name="power"></ion-icon>
             <div style="margin-left: 4%;">
              <h6 color="warning">Cerrar Sesion</h6>
@@ -63,9 +57,51 @@
 
 <ion-content style="text-align: center;">
   
-  
+  <ion-content>
+    <div class="padding-top-60">
+      <ion-tabs>
+          <ion-tab-bar slot="top">        
+            <ion-tab-button tab="">
+              <ion-icon name="cash"></ion-icon>
+              <ion-label>Saldo disponible</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button tab="saldo">
+              <ion-label class="fonts orange bold">$0.00</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+      </ion-tabs>
+    </div>
+    <div class="padding-top-10">
+      <ion-button shape="round" class="new-background-color" (click)="openPopover()">Agregar tarjeta</ion-button>
+    </div>
 
-</ion-content>
+    <div class="padding-top-20 mgl-30 center">
+        <ion-grid>
+          <ion-row>
+            <ion-col align-self-start>
+              <div class="left">        
+                      <ion-item>
+                        <ion-label>Tarjetas</ion-label>
+                        <ion-select value="brown" okText="ACEPTAR" cancelText="CANCELAR">
+                          <ion-select-option value="brown">BBVA</ion-select-option>
+                          <ion-select-option value="blonde">BANAMEX</ion-select-option>
+                          <ion-select-option value="black">SANTANDER</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="center padding-top-20">
+                  <ion-icon name="md-time"></ion-icon> Ninguna operación
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  </ion-content>
 
 
 <ion-router-outlet main></ion-router-outlet>

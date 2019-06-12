@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuController, Platform } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-billetera',
@@ -7,7 +7,9 @@ import { MenuController, Platform } from '@ionic/angular';
   styleUrls: ['./billetera.page.scss'],
 })
 export class BilleteraPage {
-  rootPage:any = 'TablePage';
+  segmentChanged(ev: any) {
+    console.log('Segment changed', ev);
+  }
 
   constructor(private menu: MenuController) { 
   }

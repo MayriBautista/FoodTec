@@ -1,0 +1,51 @@
+<!-- Back button with a default href -->
+<ion-header>
+    <ion-toolbar class="new-background-color">
+      <ion-buttons slot="start" class="white">
+        <ion-back-button defaultHref="compra"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="white">
+          Compra
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <div class="padding-top-20" style="text-align: center;">
+    <ion-label class="bold">COMPRA EXITOSA</ion-label>
+  </div>
+
+  <ion-item-divider>  
+<div class="padding-top-20 mgl-30 center">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-start>
+        <div class="left">
+          Cantidad: 
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="left">
+          1
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="left">
+          Total: 
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="left">
+          $18.00
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-item-divider> 
+</ion-content>
+
+
+<ion-router-outlet main></ion-router-outlet>
