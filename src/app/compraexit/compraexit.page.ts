@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compraexit',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompraexitPage implements OnInit {
 
-  constructor() { }
+  constructor(public route: Router) { }
 
   ngOnInit() {
   }
 
+  menu(){
+    this.route.navigateByUrl('/menu-restaurante');
+  }
 }
