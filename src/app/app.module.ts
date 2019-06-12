@@ -11,11 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpmayriService } from './httpmayri.service';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    IonicStorageModule.forRoot(), 
+    HttpClientModule],
   providers: [
     StatusBar,
     HttpService,

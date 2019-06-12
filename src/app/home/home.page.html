@@ -12,19 +12,19 @@
            <h6 color="warning"> Inicio</h6>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item (click)="irA('/cuenta')">
             <ion-icon color="food" name="person"></ion-icon>
             <div style="margin-left: 4%;">
              <h6 color="warning">Perfil</h6>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item (click)="irA('/billetera')">
               <ion-icon color="food" name="card"></ion-icon>
               <div style="margin-left: 4%;">
                <h6 color="warning">Billetera</h6>
               </div>
         </ion-item>
-        <ion-item>
+        <ion-item (click)="irA('/pedidos')">
             <ion-icon color="food" name="cube"></ion-icon>
             <div style="margin-left: 4%;">
              <h6 color="warning">Pedidos</h6>
@@ -93,10 +93,10 @@
 
         <div style="margin-top: 5%;">
             <ion-label>Selecciona tu institucion</ion-label>
-            <ion-select value="brown" okText="Seleccionar" cancelText="Cancelar">
-              <ion-select-option value="brown">ITDurango</ion-select-option>
-              <ion-select-option value="blonde">UTDurango</ion-select-option>
-              <ion-select-option value="black">UJED</ion-select-option>
+            <ion-select [(ngModel)]="selecionadoZona" value="nada" okText="Seleccionar" cancelText="Cancelar">
+              <ion-select-option value="tecno">ITDurango</ion-select-option>
+              <ion-select-option value="utd">UTDurango</ion-select-option>
+              <ion-select-option value="ujed">UJED</ion-select-option>
             </ion-select>
 
             <ion-button color="food" (click)="entrarZona()"  shape="round" expand="block">Buscar</ion-button>
@@ -117,7 +117,7 @@
               
                 <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 5%; " src="assets/icon/logo.png"></ion-img>
 
-              <ion-button (click)="verMenu(item.idRestaurante, item.nombre, item.direccion, item.telefono)" color="food" size="small" expand="full">Ver Menu</ion-button>
+              <ion-button (click)="verMenu(item.idRestaurante, item.nombre, item.direccion, item.telefono, item.ruta_imagen)" color="food" size="small" expand="full">Ver Menu</ion-button>
             </ion-card-content>
           </ion-card>
       </ion-list>

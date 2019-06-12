@@ -1,5 +1,7 @@
 {
   "name": "foodtec",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

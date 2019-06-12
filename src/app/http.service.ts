@@ -27,10 +27,23 @@ export class HttpService {
    });
   }
 
-  traerRestaurantes(){
-    
-   
-    var url = this.httpConexion + 'restaurant';
+  traerRestaurantes(valor:string){
+
+    var url = this.httpConexion + 'restaurante/'+valor;
+    return new Promise((resolve, reject) => {
+     this.http.get(url)
+        .subscribe(data => {
+          resolve(data);
+         }, (err) =>{
+           reject(err);    
+         });
+    });
+   }
+
+
+   traerMenu(valor:string){
+
+    var url = this.httpConexion + 'productos/'+valor;
     return new Promise((resolve, reject) => {
      this.http.get(url)
         .subscribe(data => {
