@@ -12,7 +12,7 @@ export class CompraPage {
   idPago:string = "1";
   idUsuario:string = "1";
   idRestaurante:string = "1";
-  totalPedido:string = "1";
+  totalPedido:string = "30";
 
   constructor(private menu: MenuController, public http:HttpmayriService, public route: Router) { 
     this.comprar();

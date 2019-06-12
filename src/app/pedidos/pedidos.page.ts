@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuController, IonSegment } from '@ionic/angular';
+import { HttpmayriService } from '../httpmayri.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -19,7 +20,7 @@ export class PedidosPage {
     }
   }
 
-  constructor(private menu: MenuController) { 
+  constructor(private menu: MenuController, public http:HttpmayriService) { 
   }
 
   openFirst() {

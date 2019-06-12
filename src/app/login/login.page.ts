@@ -23,6 +23,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  registro(){
+    this.route.navigateByUrl('/registro');
+  }
+
   inicio() {
     console.log(this.correo+this.contra);
     this.http.login(this.correo,this.contra).then(
