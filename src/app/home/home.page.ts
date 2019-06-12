@@ -59,8 +59,10 @@ export class HomePage {
 
   }
 
-  verMenu(){
+  verMenu(id:string, nombre:string, direccion:string, telefono:string){
 
+    this.route.navigateByUrl("/menurestaurante");
+   
   }
 
 
