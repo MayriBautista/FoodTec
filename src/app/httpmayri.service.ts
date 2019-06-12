@@ -24,9 +24,9 @@ export class HttpmayriService {
     });
   }
 
-  insertarProducto(idPago:string, idUsuario:string, idRestaurante:string, totalPedido:string) {
+  insertarPedido(idPago:string, idUsuario:string, idRestaurante:string, totalPedido:string, instrucciones:string, especificaciones:string) {
 
-    var envio =this.url+'registrarPedido/'+idPago+'/'+idUsuario+'/'+idRestaurante+'/'+totalPedido;
+    var envio =this.url+'registrarPedido/'+idPago+'/'+idUsuario+'/'+idRestaurante+'/'+totalPedido+'/'+instrucciones+'/'+especificaciones;
     return new Promise((resolve, reject) => {
       this.http.get(envio)
       .subscribe(data => {
@@ -36,4 +36,5 @@ export class HttpmayriService {
       });
     });
   }
+  
 }

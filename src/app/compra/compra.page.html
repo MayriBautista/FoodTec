@@ -12,16 +12,16 @@
 
 <ion-content>
   <div class="padding-top-20" style="text-align: center;">
-    <ion-label class="bold">PASTE REY</ion-label>
+    <ion-label class="bold">{{nombre}}</ion-label>
   </div>
   <div class="center padding-top-10 mg-5" style="text-align: center;">
       <ion-label class="italic fontc">Ingredientes:</ion-label>
       <ion-label text-wrap class="center mg-5 fontc">
-        Jamón, salchicha, queso amarillo, queso blanco y chorizo.
+        {{descripcion}}
       </ion-label>
   </div>   
   <div class="padding-top-10" style="text-align: center;">
-    <ion-label>MX$18</ion-label>
+    <ion-label>{{precio}}</ion-label>
   </div> 
 
   <div style="text-align: left;" class="mg-10 padding-top-20">
@@ -41,7 +41,7 @@
   <div class="mg-20">      
     <ion-item>
         <ion-label position="fixed">Cantidad:</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="cantidad"></ion-input>
       </ion-item>
   </div>
 
