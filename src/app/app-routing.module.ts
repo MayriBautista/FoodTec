@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'eliminar', loadChildren: './eliminar/eliminar.module#EliminarPageModule' },
   { path: 'billetera', loadChildren: './billetera/billetera.module#BilleteraPageModule' },
   { path: 'menurestaurante/:idRes/:nombre/:direccion/:telefono/:ruta', loadChildren: './menu-restaurante/menu-restaurante.module#MenuRestaurantePageModule' },
-  { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' },
+  { path: 'compra/:idRes/:idProducto/:nombre/:desc/:precio', loadChildren: './compra/compra.module#CompraPageModule' },
   { path: 'compraexit', loadChildren: './compraexit/compraexit.module#CompraexitPageModule' },
   { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },
 

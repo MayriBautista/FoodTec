@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>menu-restaurante</ion-title>
+    <ion-title>{{nombreRes}}</ion-title>
     <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
+
+    <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 5%; " src="{{ruta}}"></ion-img>
+
+    <ion-button (click)="comprar(1)" color="primary">Primary</ion-button>
+
 
 </ion-content>
