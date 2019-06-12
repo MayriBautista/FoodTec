@@ -15,13 +15,13 @@
     <ion-label class="bold">{{nombre}}</ion-label>
   </div>
   <div class="center padding-top-10 mg-5" style="text-align: center;">
-      <ion-label class="italic fontc">Ingredientes:</ion-label>
+      <ion-label class="italic fontc">Descripción:</ion-label>
       <ion-label text-wrap class="center mg-5 fontc">
         {{descripcion}}
       </ion-label>
   </div>   
   <div class="padding-top-10" style="text-align: center;">
-    <ion-label>{{precio}}</ion-label>
+    <ion-label>MX${{precio}}</ion-label>
   </div> 
 
   <div style="text-align: left;" class="mg-10 padding-top-20">
@@ -46,9 +46,6 @@
   </div>
 
   <div class="padding-top-30 center">
-      <ion-button shape="round" class="new-background-color">Comprar</ion-button>
+      <ion-button shape="round" class="new-background-color" (click)="total()">Comprar</ion-button>
   </div>
 </ion-content>
-
-
-<ion-router-outlet main></ion-router-outlet>

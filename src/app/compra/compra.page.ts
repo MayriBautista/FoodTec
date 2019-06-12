@@ -14,7 +14,8 @@ export class CompraPage implements OnInit {
   idPago:string = "";
   idUsuario:string = "";
   idRestaurante:string = "";
-  totalPedido:string = "";
+  totalc:any;
+  idProducto:any;
   especificaciones:string = "";
   ubicacion:string = "";
   cantidad: any = "1";
@@ -24,26 +25,30 @@ export class CompraPage implements OnInit {
   precio:any;
 
   constructor(private storage: Storage, private activatedRoute: ActivatedRoute, private menu: MenuController, public http:HttpmayriService, public route: Router) { 
-    storage.get(this.idUsuario).then((val) => {
-      console.log('Usuario', val);
+    storage.get("idUsuario").then((val) => {
+      console.log('idUsuario', val);
     });
   }
 
-  total () {
-    var totalc=parseInt(this.cantidad) * parseFloat(this.precio);
+  total() {
+    console.log(this.cantidad+"<--cantidad "+this.precio+"<--precio");
+    this.totalc=parseInt(this.cantidad) * parseFloat(this.precio);
+    console.log(this.totalc);
+    this.comprar(this.totalc);
   }
 
   ngOnInit() {
     this.idUsuario = this.activatedRoute.snapshot.paramMap.get('idUsuario');
-    this.idRestaurante = this.activatedRoute.snapshot.paramMap.get('idRestaurante');
+    this.idProducto = this.activatedRoute.snapshot.paramMap.get('idProducto');
+    this.idRestaurante = this.activatedRoute.snapshot.paramMap.get('idRes');
     this.nombre = this.activatedRoute.snapshot.paramMap.get('nombre');
-    this.especificaciones = this.activatedRoute.snapshot.paramMap.get('especificaciones');
+    this.descripcion = this.activatedRoute.snapshot.paramMap.get('desc');
     this.precio = this.activatedRoute.snapshot.paramMap.get('precio');
 
   }
-  comprar() {
-    console.log(this.idPago+this.idUsuario+this.idRestaurante+this.totalPedido+this.especificaciones+this.ubicacion);
-    this.http.insertarPedido(this.idPago,this.idUsuario,this.idRestaurante,this.totalPedido, this.especificaciones, this.ubicacion).then(
+  comprar(totalc:any) {
+    console.log(this.idUsuario+this.idRestaurante+this.idProducto+this.precio+this.idPago+this.especificaciones+this.totalc+this.ubicacion);
+    this.http.insertarPedido(this.idUsuario,this.idRestaurante,this.idProducto,this.precio,this.idPago,this.especificaciones,this.totalc,this.ubicacion).then(
       (inv) => {
         console.log(inv);
         
