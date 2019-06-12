@@ -46,12 +46,12 @@
         </div>
     </ion-item>
     <div color="food">
-        <ion-checkbox style="margin-top: 3%; padding-top:2px;" color="food"></ion-checkbox>
+        <ion-checkbox  [(ngModel)]="terminosCheck" style="margin-top: 3%; padding-top:2px;" color="food"></ion-checkbox>
         <ion-label>Acepto los terminos y condiciones</ion-label>
     </div>
 
 
-    <ion-button expand="full" shape="round" [(ngModel)]="terminosCheck" color="dark">Registrar</ion-button>
+    <ion-button expand="full" shape="round" (click)="verificarDatos()" color="dark">Registrar</ion-button>
 
   </div>
 

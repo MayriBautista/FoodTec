@@ -25,25 +25,44 @@
               </div>
         </ion-item>
         <ion-item>
-            <ion-icon color="food" name="logo-dropbox"></ion-icon>
+            <ion-icon color="food" name="cube"></ion-icon>
             <div style="margin-left: 4%;">
-             <h6 color="warning">Pedidos Actuales</h6>
+             <h6 color="warning">Pedidos</h6>
             </div>
         </ion-item>
-        <ion-item>
-            <ion-icon color="food" name="calendar"></ion-icon>
-            <div style="margin-left: 4%;">
-             <h6 color="warning">Historial</h6>
-            </div>
-        </ion-item>
-        <ion-item>
-            <ion-icon color="food" name="power"></ion-icon>
-            <div style="margin-left: 4%;">
-             <h6 color="warning">Cerrar Sesion</h6>
-            </div>
-        </ion-item>
+       
       </ion-list>
+      <ion-list>
+          <ion-item (click)="irA('/cambiarcontra')">
+              <div style="margin-left: 0%;">
+               <h6 style="font-size: 1dp;" color="warning">Cambiar Contraseña</h6>
+              </div>
+          </ion-item>
+          <ion-item (click)="irA('/cambiarnum')">
+              <div style="margin-left: 0%;">
+               <h6 style="font-size: 1dp;" color="warning">Cambiar Numero</h6>
+              </div>
+          </ion-item>
+          <ion-item (click)="irA('/eliminar')">
+              <div style="margin-left: 0%;">
+               <h6 style="font-size: 1dp;" color="warning">Desactivar Cuenta</h6>
+              </div>
+          </ion-item>
+      </ion-list>
+
+
     </ion-content>
+
+    <ion-footer>
+        <ion-toolbar color="food">
+            <ion-item color="food" (click)="irA('/login')">
+                <ion-icon color="light" name="power"></ion-icon>
+                <div style="margin-left: 4%;">
+                 <h6 color="warning">Cerrar Sesion</h6>
+                </div>
+            </ion-item>
+        </ion-toolbar>
+      </ion-footer>
   </ion-menu>
 
 
@@ -61,22 +80,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="text-align: center;">
-  
-    <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 5%; " src="assets/icon/logo.png"></ion-img>
 
-    <div style="margin-top: 5%;">
-        <ion-label>Selecciona tu institucion</ion-label>
-        <ion-select value="brown" okText="Seleccionar" cancelText="Cancelar">
-          <ion-select-option value="brown">ITDurango</ion-select-option>
-          <ion-select-option value="blonde">UTDurango</ion-select-option>
-          <ion-select-option value="black">UJED</ion-select-option>
-        </ion-select>
 
-        <ion-button color="food"  shape="round" expand="block">Buscar</ion-button>
-      </div>
+<ion-router-outlet main>
+
+ 
+
+  <ion-content style="text-align: center; top: 10%;">
+
+     <div [hidden]="zona">
+        <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 20%; " src="assets/icon/logo.png"></ion-img>
+
+        <div style="margin-top: 5%;">
+            <ion-label>Selecciona tu institucion</ion-label>
+            <ion-select value="brown" okText="Seleccionar" cancelText="Cancelar">
+              <ion-select-option value="brown">ITDurango</ion-select-option>
+              <ion-select-option value="blonde">UTDurango</ion-select-option>
+              <ion-select-option value="black">UJED</ion-select-option>
+            </ion-select>
+
+            <ion-button color="food" (click)="entrarZona()"  shape="round" expand="block">Buscar</ion-button>
+          </div>
+
+    </div>
+
+    <div [hidden]="restaurantes">
+
+      <ion-list>
+        <ion-card *ngFor="let item of estable">
+            <ion-card-header>
+              <ion-card-subtitle>{{item.nombre}}</ion-card-subtitle>
+              <ion-card-title>{{item.telefono}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              
+                <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 5%; " src="assets/icon/logo.png"></ion-img>
+
+              <ion-button (click)="verMenu()" color="food" size="small" expand="full">Ver Menu</ion-button>
+            </ion-card-content>
+          </ion-card>
+      </ion-list>
+
+    </div>
 
 </ion-content>
 
-
-<ion-router-outlet main></ion-router-outlet>
+</ion-router-outlet>

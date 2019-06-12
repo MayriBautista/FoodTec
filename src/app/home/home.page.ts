@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,10 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menu: MenuController) { }
+  restaurantes:boolean = true;
+  zona:boolean= false;
+
+  constructor(private menu: MenuController, public http:HttpService, public route:Router) { }
 
   openFirst() {
     console.log("click OpenFirst");
@@ -25,6 +30,44 @@ export class HomePage {
     console.log("click OpenCustom");
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
+  }
+
+  entrarZona(){
+
+    this.restaurantes = false;
+    this.zona = true;
+
+    this.traerRestaurantes();
+  }
+
+  estable:any
+  traerRestaurantes(){
+
+    this.http.traerRestaurantes().then(
+      (inv) => { 
+       console.log(inv);  
+       this.estable = inv;   
+
+       
+         
+      },
+      (error) =>{
+        console.log("Error"+JSON.stringify(error));
+        alert("Verifica que cuentes con internet");
+      }
+    );
+
+  }
+
+  verMenu(){
+
+  }
+
+
+  irA(vinculo:string){
+    console.log(vinculo);
+
+    this.route.navigateByUrl(vinculo);
   }
 
 }
