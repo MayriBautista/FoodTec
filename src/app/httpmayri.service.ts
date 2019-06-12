@@ -24,9 +24,9 @@ export class HttpmayriService {
     });
   }
 
-  insertarPedido(idPago:string, idUsuario:string, idRestaurante:string, totalPedido:string, instrucciones:string, especificaciones:string) {
+  insertarPedido(idPago:string, idUsuario:string, idRestaurante:string, totalPedido:string, especificaciones:string, ubicacion:string) {
 
-    var envio =this.url+'registrarPedido/'+idPago+'/'+idUsuario+'/'+idRestaurante+'/'+totalPedido+'/'+instrucciones+'/'+especificaciones;
+    var envio =this.url+'registrarPedido/'+idPago+'/'+idUsuario+'/'+idRestaurante+'/'+totalPedido+'/'+especificaciones+'/'+ubicacion;
     return new Promise((resolve, reject) => {
       this.http.get(envio)
       .subscribe(data => {

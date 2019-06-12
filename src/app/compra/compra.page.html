@@ -27,14 +27,14 @@
   <div style="text-align: left;" class="mg-10 padding-top-20">
     <ion-label class="bold left mg-left-20 fontt">Instrucciones especiales:</ion-label>
     <ion-item >
-      <ion-textarea class="fontt" placeholder="Ej. Sin cebolla, etc..."></ion-textarea>
+      <ion-textarea [(ngModel)]="especificaciones" class="fontt" placeholder="Ej. Sin cebolla, etc..."></ion-textarea>
     </ion-item>
   </div>
 
   <div style="text-align: left;" class="mg-10 padding-top-10">
       <ion-label class="bold left mg-left-20 fontt">Especificaciones de ubicación:</ion-label>
       <ion-item class="no-padding">
-        <ion-textarea class="fontt" placeholder="Ej. Unidad de Sistemas y Computación, etc..."></ion-textarea>
+        <ion-textarea [(ngModel)]="ubicacion" class="fontt" placeholder="Ej. Unidad de Sistemas y Computación, etc..."></ion-textarea>
       </ion-item>
   </div>
 

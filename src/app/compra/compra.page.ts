@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { HttpmayriService } from '../httpmayri.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-compra',
@@ -10,31 +11,39 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./compra.page.scss'],
 })
 export class CompraPage implements OnInit {
-  idPago:string = "1";
-  idUsuario:string = "1";
-  idRestaurante:string = "1";
-  totalPedido:string = "30";
-  instrucciones:string = "1";
-  especificaciones:string = "1";
-  cantidad: any;
+  idPago:string = "";
+  idUsuario:string = "";
+  idRestaurante:string = "";
+  totalPedido:string = "";
+  especificaciones:string = "";
+  ubicacion:string = "";
+  cantidad: any = "1";
 
   nombre=null;
   descripcion=null;
-  precio=null;
+  precio:any;
 
-  constructor(private activatedRoute: ActivatedRoute, private menu: MenuController, public http:HttpmayriService, public route: Router) { 
+  constructor(private storage: Storage, private activatedRoute: ActivatedRoute, private menu: MenuController, public http:HttpmayriService, public route: Router) { 
+    storage.get(this.idUsuario).then((val) => {
+      console.log('Usuario', val);
+    });
+  }
 
+  total () {
+    var totalc=parseInt(this.cantidad) * parseFloat(this.precio);
   }
 
   ngOnInit() {
+    this.idUsuario = this.activatedRoute.snapshot.paramMap.get('idUsuario');
+    this.idRestaurante = this.activatedRoute.snapshot.paramMap.get('idRestaurante');
     this.nombre = this.activatedRoute.snapshot.paramMap.get('nombre');
-    this.descripcion = this.activatedRoute.snapshot.paramMap.get('descripcion');
+    this.especificaciones = this.activatedRoute.snapshot.paramMap.get('especificaciones');
     this.precio = this.activatedRoute.snapshot.paramMap.get('precio');
 
   }
   comprar() {
-    console.log(this.idPago+this.idUsuario+this.idRestaurante+this.totalPedido);
-    this.http.insertarPedido(this.idPago,this.idUsuario,this.idRestaurante,this.totalPedido, this.instrucciones, this.especificaciones).then(
+    console.log(this.idPago+this.idUsuario+this.idRestaurante+this.totalPedido+this.especificaciones+this.ubicacion);
+    this.http.insertarPedido(this.idPago,this.idUsuario,this.idRestaurante,this.totalPedido, this.especificaciones, this.ubicacion).then(
       (inv) => {
         console.log(inv);
         
