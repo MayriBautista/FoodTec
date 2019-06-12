@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -13,13 +13,17 @@ export class MenuRestaurantePage implements OnInit {
   nombreRes:string;
   direccionRes:string;
   telefonoRes:string;
+  ruta:string;
 
-  constructor( public activatedRoute: ActivatedRoute, public http:HttpService) { 
+  constructor( public activatedRoute: ActivatedRoute, public http:HttpService, public route:Router) { 
 
     this.idRestaurante = this.activatedRoute.snapshot.paramMap.get('idRes');
     this.nombreRes = this.activatedRoute.snapshot.paramMap.get('nombre');
     this.direccionRes = this.activatedRoute.snapshot.paramMap.get('direccion');
     this.telefonoRes = this.activatedRoute.snapshot.paramMap.get('telefono');
+    this.ruta = this.activatedRoute.snapshot.paramMap.get('ruta');
+
+    this.ruta = "http://avisositd.xyz/eneit/gifs/"+this.ruta;
     console.log("Lo que esta llegando "+this.idRestaurante+" "+this.nombreRes+this.direccionRes+this.telefonoRes);
 
     this.traerMenu(this.idRestaurante);
@@ -43,6 +47,15 @@ export class MenuRestaurantePage implements OnInit {
       }
     );
 
+  }
+
+  comprar(idProd:any){
+
+    var nombre = "OLA";
+    var des = "Burritos y mas "
+    var precio = "25"
+    
+    this.route.navigateByUrl("/compra/"+this.idRestaurante+"/"+idProd+"/"+nombre+"/"+des+"/"+precio);
   }
 
 }
