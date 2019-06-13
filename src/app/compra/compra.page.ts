@@ -4,6 +4,8 @@ import { HttpmayriService } from '../httpmayri.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-compra',
@@ -11,30 +13,32 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./compra.page.scss'],
 })
 export class CompraPage implements OnInit {
-  idPago:string = "";
+  idPago:string = "1";
   idUsuario:string = "";
   idRestaurante:string = "";
-  totalc:any;
+ 
   idProducto:any;
-  especificaciones:string = "";
-  ubicacion:string = "";
+  especificaciones:string = null;
+  ubicacion:string = null;
   cantidad: any = "1";
 
   nombre=null;
   descripcion=null;
   precio:any;
 
-  constructor(private storage: Storage, private activatedRoute: ActivatedRoute, private menu: MenuController, public http:HttpmayriService, public route: Router) { 
+  constructor(public toastController:ToastController ,public storage: Storage, private activatedRoute: ActivatedRoute, private menu: MenuController, public http:HttpmayriService, public route: Router) { 
     storage.get("idUsuario").then((val) => {
       console.log('idUsuario', val);
+      this.idUsuario = val;
     });
   }
 
   total() {
+    var totalc;
     console.log(this.cantidad+"<--cantidad "+this.precio+"<--precio");
-    this.totalc=parseInt(this.cantidad) * parseFloat(this.precio);
-    console.log(this.totalc);
-    this.comprar(this.totalc);
+    totalc=parseInt(this.cantidad) * parseFloat(this.precio);
+    console.log(totalc);
+    this.comprar(totalc);
   }
 
   ngOnInit() {
@@ -47,10 +51,26 @@ export class CompraPage implements OnInit {
 
   }
   comprar(totalc:any) {
-    console.log(this.idUsuario+this.idRestaurante+this.idProducto+this.precio+this.idPago+this.especificaciones+this.totalc+this.ubicacion);
-    this.http.insertarPedido(this.idUsuario,this.idRestaurante,this.idProducto,this.precio,this.idPago,this.especificaciones,this.totalc,this.ubicacion).then(
+
+    if(this.especificaciones == null){
+      this.especificaciones = "nunguna";
+
+    }
+
+    if(this.ubicacion == null){
+
+      this.presentToast();
+      return
+    }
+
+
+
+    console.log(this.idUsuario+this.idRestaurante+this.idProducto+this.precio+this.idPago+this.especificaciones+totalc+this.ubicacion);
+    this.http.insertarPedido(this.idUsuario,this.idRestaurante,this.idProducto,this.precio,this.idPago,this.especificaciones,totalc,this.ubicacion,this.cantidad).then(
       (inv) => {
         console.log(inv);
+        this.route.navigateByUrl('/compraexit/'+this.cantidad+"/"+totalc+"/"+this.nombre);
+
         
       },
       (error) => {
@@ -60,21 +80,12 @@ export class CompraPage implements OnInit {
     );
   }
 
-  openFirst() {
-    console.log("click OpenFirst");
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    console.log("click OpenEnd");
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    console.log("click OpenCustom");
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'No podemos enviarte tu producto si no pones tus referencias de ubicacion',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

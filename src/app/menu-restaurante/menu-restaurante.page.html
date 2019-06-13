@@ -7,11 +7,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="text-align: center">
 
     <ion-img style="padding-left:20%; padding-right: 20%; margin-top: 5%; " src="{{ruta}}"></ion-img>
 
-    <ion-button (click)="comprar(1)" color="primary">Primary</ion-button>
+      <h3>{{direccionRes}}</h3>
+      <h6>{{telefonoRes}}</h6>
+
+      <ion-list>
+
+        <ion-item *ngFor="let item of menu" (click)="comprar(item.idProducto, item.nombre, item.descripcion, item.precio)" detail>
+          <div style="margin-left: 4%;">
+            <span>{{item.nombre}}</span>
+           <h6 style="color:rgb(243, 117, 14)">MXN${{item.precio}}</h6>
+          </div>
+          
+          </ion-item>
+      </ion-list>
+   
 
 
 </ion-content>
