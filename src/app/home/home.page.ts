@@ -3,7 +3,6 @@ import { MenuController } from '@ionic/angular';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Storage } from '@ionic/storage';
 
 
 
@@ -20,20 +19,7 @@ export class HomePage {
 
   selecionadoZona:string="nada";
 
-  constructor(private storage: Storage, private menu: MenuController, public http:HttpService, public route:Router, public activatedRoute:ActivatedRoute) { 
-
-    this.idUsuario = this.activatedRoute.snapshot.paramMap.get('id');
-
-     // set a key/value
-     storage.set('idUsuario', this.idUsuario);
-
-
-       // Or to get a key/value pair
-      storage.get('idUsuario').then((val) => {
-        console.log('El ID es', val);
-      });
-
-
+  constructor(private menu: MenuController, public http:HttpService, public route:Router, public activatedRoute:ActivatedRoute) { 
     
 
   }

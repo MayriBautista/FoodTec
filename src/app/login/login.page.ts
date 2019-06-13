@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpmayriService } from '../httpmayri.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,9 @@ export class LoginPage implements OnInit {
   correo: string; 
   contra: string;
   
-  constructor(public http:HttpmayriService, public toastController: ToastController, public route: Router) { }
+  constructor(public http:HttpmayriService, private storage: Storage, public toastController: ToastController, public route: Router) { 
+   
+  }
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Contraseña y/o usuario incorrecto',
@@ -34,7 +38,10 @@ export class LoginPage implements OnInit {
         console.log(inv);
         var id=inv['idUsuario'];
         if(id!=0){
-          this.route.navigateByUrl('/home/'+id);
+
+           // set a key/value
+          this.storage.set('idUsuario', id);
+          this.route.navigateByUrl('/home');
         }else {
           this.presentToast();
         }

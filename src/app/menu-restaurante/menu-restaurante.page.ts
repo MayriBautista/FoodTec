@@ -49,12 +49,9 @@ export class MenuRestaurantePage implements OnInit {
 
   }
 
-  comprar(idProd:any){
+  comprar(idProd:any,nombre:string,des:string,precio:string){
 
-    var nombre = "OLA";
-    var des = "Burritos y mas "
-    var precio = "25"
-    
+   
     this.route.navigateByUrl("/compra/"+this.idRestaurante+"/"+idProd+"/"+nombre+"/"+des+"/"+precio);
   }
 

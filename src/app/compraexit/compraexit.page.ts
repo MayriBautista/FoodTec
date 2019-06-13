@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-compraexit',
@@ -8,12 +8,22 @@ import { Router } from '@angular/router';
 })
 export class CompraexitPage implements OnInit {
 
-  constructor(public route: Router) { }
+  cantidad:string;
+  total:string;
+  nombre:string;
+
+  constructor(public route: Router, public activatedRoute:ActivatedRoute) { 
+
+    this.cantidad = this.activatedRoute.snapshot.paramMap.get('cantidad');
+    this.total = this.activatedRoute.snapshot.paramMap.get('total');
+    this.nombre = this.activatedRoute.snapshot.paramMap.get('nombre');
+
+  }
 
   ngOnInit() {
   }
 
   menu(){
-    this.route.navigateByUrl('/menu-restaurante');
+    this.route.navigateByUrl('/home');
   }
 }

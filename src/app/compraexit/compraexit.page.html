@@ -10,7 +10,9 @@
   </ion-header>
 
 <ion-content>
+
   <div class="padding-top-20" style="text-align: center;">
+    <h1>{{nombre}}</h1>
     <ion-label class="bold">COMPRA EXITOSA</ion-label>
   </div>
 
@@ -25,7 +27,7 @@
       </ion-col>
       <ion-col>
         <div class="left">
-          1
+          {{cantidad}}
         </div>
       </ion-col>
     </ion-row>
@@ -37,7 +39,7 @@
       </ion-col>
       <ion-col>
         <div class="left">
-          $18.00
+          MXN${{total}}.00
         </div>
       </ion-col>
     </ion-row>
@@ -45,9 +47,12 @@
 </div>
 </ion-item-divider> 
 <div class="padding-top-30 center">
+
+  <h3>Te la enviaremos a la ubicacion que nos pusiste</h3>
+  <h4>el tiempo de espera estimado es:  15 Minutos</h4>
   <ion-button shape="round" class="new-background-color" (click)="menu()">Continuar</ion-button>
 </div>
 </ion-content>
 
 
-<ion-router-outlet main></ion-router-outlet>
+
