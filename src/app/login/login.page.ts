@@ -37,7 +37,9 @@ export class LoginPage implements OnInit {
       (inv) => {
         console.log(inv);
         var id=inv['idUsuario'];
-        if(id!=0){
+        //if(id!=0){
+        var estado=inv['resultado'];
+          if(estado!="Cuenta desativada" || id!=0){
 
            // set a key/value
           this.storage.set('idUsuario', id);

@@ -8,7 +8,7 @@ export class HttpmayriService {
 
 
 
-  url: String = "http://foodtec.mobi-fest.com/";
+  url: String = "https://itd-foodtec.000webhostapp.com/foodtec/";
   constructor(public http:HttpClient) { }
 
   login(correo:string, contra:string) {
@@ -37,4 +37,16 @@ export class HttpmayriService {
     });
   }
   
+  desactiva(correo:string) {
+
+    var envio =this.url+'desactivarCuenta/'+correo;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
 }
