@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  httpConexion = "http://foodtec.mobi-fest.com/";
+  httpConexion = "https://itd-foodtec.000webhostapp.com/foodtec/";
 
   constructor(public http:HttpClient) { }
 
