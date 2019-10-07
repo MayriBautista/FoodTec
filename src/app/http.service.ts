@@ -54,4 +54,17 @@ export class HttpService {
     });
    }
 
+   traerPerfil(){
+
+    var url = this.httpConexion + 'perfil/';
+    return new Promise((resolve, reject) => {
+     this.http.get(url)
+        .subscribe(data => {
+          resolve(data);
+         }, (err) =>{
+           reject(err);    
+         });
+    });
+   }
+
 }
