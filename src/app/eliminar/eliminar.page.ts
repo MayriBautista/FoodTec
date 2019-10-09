@@ -21,9 +21,9 @@ export class EliminarPage implements OnInit {
   
   }
 
-  async presentToast() {
+  async presentToast(mensaje) {
     const toast = await this.toastController.create({
-      message: 'Correo incorrecto',
+      message: mensaje,
       duration: 2000
     });
     toast.present();
@@ -35,14 +35,15 @@ export class EliminarPage implements OnInit {
       (inv) => {
         console.log(inv);
         var email=inv['email'];
-        if(email!=""){
-
-           // set a key/value
-          this.storage.set('email', this.correo);
-          this.route.navigateByUrl('/desactivarcuenta/'+this.correo);
+      //  if(email == 'verificar'){
+       //   this.presentToast("El correo es incorrecto");
+       // } else {
+        if(email == 'no existe'){
+          this.presentToast("El correo no existe");
         }else {
-          this.presentToast();
+          this.route.navigateByUrl('login');
         }
+     // }
       },
       (error) => {
         console.log("Error"+JSON.stringify(error));

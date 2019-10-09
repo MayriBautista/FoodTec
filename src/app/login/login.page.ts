@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpmayriService } from '../httpmayri.service';
+import { HttpService } from '../http.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -14,9 +14,18 @@ export class LoginPage implements OnInit {
   correo: string; 
   contra: string;
   
-  constructor(public http:HttpmayriService, private storage: Storage, public toastController: ToastController, public route: Router) { 
+  constructor( public http:HttpService, private storage: Storage, public toastController: ToastController, public route: Router) { 
    
   }
+
+  async mensaje() {
+    const toast = await this.toastController.create({
+      message: 'Cuenta desactivada.',
+      duration: 2000
+    });
+    toast.present();
+  }
+
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Contraseña y/o usuario incorrecto',
@@ -30,20 +39,23 @@ export class LoginPage implements OnInit {
     this.route.navigateByUrl('/registro');
   }
 
- /* inicio() {
+ inicio() {
     console.log(this.correo+this.contra);
     this.http.login(this.correo,this.contra).then(
       (inv) => {
         console.log(inv);
-        var resultado = inv['estatus'];
         var id=inv['idUsuario'];
 
-        if(resultado =! 1){
-          this.presentToast();
-        } else {
           this.storage.set('idUsuario', id);
-          this.route.navigateByUrl('/home');
-        }
+          if(id != 0){
+            if(id == -1){
+              this.mensaje();
+            } else {
+              this.route.navigateByUrl('/home');
+            }
+          } else {
+            this.presentToast();
+          }
       },
       (error) =>{
         console.log("Error"+JSON.stringify(error));
@@ -51,15 +63,15 @@ export class LoginPage implements OnInit {
       }
     );
   }
-  */
-
+  
+/*
   inicio() {
     console.log(this.correo+this.contra);
     this.http.login(this.correo,this.contra).then(
       (inv) => {
         console.log('recibo: '+inv);
        var id=inv['idUsuario'];
-      if(id!=0){
+   //   if(id!=0){
         var estado=inv['resultado'];
         if(estado!="Cuenta desativada"){
 
@@ -67,14 +79,14 @@ export class LoginPage implements OnInit {
           this.storage.set('idUsuario', id);
           this.route.navigateByUrl('/home');
       }
-        }else {
-          this.presentToast();
-        }
+        // }else {
+        //   this.presentToast();
+        // }
       },
       (error) => {
         console.log("Error"+JSON.stringify(error));
         alert("Verifica que cuentes con internet");
       }
     );
-  }
+  }*/
 }

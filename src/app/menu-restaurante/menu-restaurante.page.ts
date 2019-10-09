@@ -52,7 +52,7 @@ export class MenuRestaurantePage implements OnInit {
   comprar(idProd:any,nombre:string,des:string,precio:string){
 
    
-    this.route.navigateByUrl("/compra/"+this.idRestaurante+"/"+idProd+"/"+nombre+"/"+des+"/"+precio);
+    this.route.navigateByUrl("compra/"+this.idRestaurante+"/"+idProd+"/"+nombre+"/"+des+"/"+precio);
   }
 
 }

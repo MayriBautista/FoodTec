@@ -17,20 +17,20 @@
       <div class="padding-top-20">
         <ion-item>
           <ion-label position="floating">Contraseña actual</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="contraAct"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Nueva contraseña</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="contraNew"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" color="black">Repetir nueva contraseña</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="repContraNew"></ion-input>
         </ion-item>
       </div>
     </div>
       <div class="padding-top-30 center">
-          <ion-button shape="round" expand="block" class="new-background-color">Guardar cambios</ion-button>
+          <ion-button shape="round" expand="block" class="new-background-color" (ionClic)="actualizar()">Guardar cambios</ion-button>
           <ion-button shape="round" expand="block" class="f-color white">Cancelar</ion-button>
       </div>
 </ion-content>

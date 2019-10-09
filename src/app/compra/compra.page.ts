@@ -53,7 +53,7 @@ export class CompraPage implements OnInit {
   comprar(totalc:any) {
 
     if(this.especificaciones == null){
-      this.especificaciones = "nunguna";
+      this.especificaciones = "ninguna";
 
     }
 
@@ -63,8 +63,7 @@ export class CompraPage implements OnInit {
       return
     }
 
-
-
+  //  http://127.0.0.1:8000/insertarPedido/0/1/1/30/1/ninguna/1/30/SC2
     console.log(this.idUsuario+this.idRestaurante+this.idProducto+this.precio+this.idPago+this.especificaciones+totalc+this.ubicacion);
     this.http.insertarPedido(this.idUsuario,this.idRestaurante,this.idProducto,this.precio,this.idPago,this.especificaciones,totalc,this.ubicacion,this.cantidad).then(
       (inv) => {
