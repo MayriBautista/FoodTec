@@ -26,6 +26,14 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  async mensaje2() {
+    const toast = await this.toastController.create({
+      message: 'Contraseña Incorrecta.',
+      duration: 2000
+    });
+    toast.present();
+  }
+
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Contraseña y/o usuario incorrecto',
@@ -51,8 +59,13 @@ export class LoginPage implements OnInit {
             if(id == -1){
               this.mensaje();
             } else {
-              this.route.navigateByUrl('/home');
+              if(id == -2){
+                this.mensaje2();
+              } else {
+                this.route.navigateByUrl('/home');
+              }
             }
+            
           } else {
             this.presentToast();
           }
