@@ -17,8 +17,8 @@ export class HttpmayriService {
 
   
 
-  cambiarContra(contra:string) {
-    var envio =this.url+'updateContra/'+contra;
+  cambiarContra(id:string,contraAct:string,contraNew:string) {
+    var envio =this.url+'updateContra/'+id+'/'+contraAct+'/'+contraNew;
     return new Promise((resolve, reject) => {
       this.http.get(envio)
       .subscribe(data => {

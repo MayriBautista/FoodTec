@@ -29,8 +29,7 @@ export class MenuRestaurantePage implements OnInit {
     this.traerMenu(this.idRestaurante);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   menu:any;
   traerMenu(id:string){
@@ -38,8 +37,6 @@ export class MenuRestaurantePage implements OnInit {
       (inv) => { 
        console.log(inv);  
        this.menu = inv;   
-
-
       },
       (error) =>{
         console.log("Error"+JSON.stringify(error));
