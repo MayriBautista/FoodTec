@@ -10,25 +10,17 @@
 <ion-content>
   <!-- Item Dividers in a List -->
   <ion-list>
-    
-      <div class="mg-top-20">Ingresa el número de teléfono antiguo con el código del país:</div>
-      <ion-item-divider>
-    <ion-item>
-        <ion-label position="fixed">(+52)</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-    </ion-item-divider>
     <div class="mg-top-20">Ingresa el nuevo número de teléfono con el código del país:</div>
       <ion-item-divider>
     <ion-item>
         <ion-label position="fixed">(+52)</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="numNew"></ion-input>
       </ion-item>
     </ion-item-divider>
   </ion-list>
 
       <div class="padding-top-30 center">
-          <ion-button shape="round" expand="block" class="new-background-color">Guardar cambios</ion-button>
+          <ion-button shape="round" expand="block" class="new-background-color" (click)="verificarDatos()">Guardar cambios</ion-button>
           <ion-button shape="round" expand="block" class="f-color white">Cancelar</ion-button>
       </div>
 </ion-content>

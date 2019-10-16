@@ -60,6 +60,7 @@ export class CambiarcontraPage implements OnInit {
        if(estatus == "wrong"){
           this.mensajeToast('La contraseña actual no coincide con nuestro registro');
         } else {
+          this.mensajeToast('Contraseña actualizada');
           this.route.navigateByUrl('/home');
         }
       },
