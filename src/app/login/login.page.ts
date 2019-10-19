@@ -53,7 +53,9 @@ export class LoginPage implements OnInit {
       (inv) => {
         console.log(inv);
         var id=inv['idUsuario'];
+        var pass=inv['password'];
 
+          this.storage.set('password',pass);
           this.storage.set('idUsuario', id);
           if(id != 0){
             if(id == -1){
