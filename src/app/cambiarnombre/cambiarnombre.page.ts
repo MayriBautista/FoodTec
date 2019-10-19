@@ -1,63 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { HttpmayriService } from '../httpmayri.service';
 import { ToastController, AlertController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
-
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cambiarnum',
-  templateUrl: './cambiarnum.page.html',
-  styleUrls: ['./cambiarnum.page.scss'],
+  selector: 'app-cambiarnombre',
+  templateUrl: './cambiarnombre.page.html',
+  styleUrls: ['./cambiarnombre.page.scss'],
 })
-export class CambiarnumPage implements OnInit {
+export class CambiarnombrePage implements OnInit {
 
-  numNew: string;
-  idUsuario: string;
+
+  //   HOLA, MAYRI!
+  // El botón debe ser (click)="verificarDatos()"
+
+
+
   pass: string;
+  nuevoNombre:string; //[(ngModel)]="nuevoNombre"  ← eso ponlo en el input y listo, debería funcionar
+  idUsuario:string;
 
-  constructor(public activatedRoute: ActivatedRoute, public http: HttpmayriService,
+  constructor(public http: HttpmayriService,
     private storage: Storage, public toastController: ToastController, public route: Router,
     public alertCtrl: AlertController) {
 
-    storage.get("idUsuario").then((val) => {
-      console.log('idUsuario', val);
-      this.idUsuario = val;
+      storage.get("idUsuario").then((val) => {
+        console.log('idUsuario', val);
+        this.idUsuario = val;
+      });
+      storage.get("password").then((val) => {
+        console.log('contra', val);
+        this.pass = val;
 
-    });
-    storage.get("password").then((val) => {
-      console.log('contra', val);
-      this.pass = val;
-
-    });
-
+      });
   }
 
+  ngOnInit() {
+  }
+
+
   verificarDatos() {
-    if (this.numNew == undefined) {
-      this.mensajeToast("Campo vacio");
+    if ( this.nuevoNombre == undefined) {
+      this.mensajeToast("El campo no puede estar vacío");
       return
     }
     this.confirmarContra();
   }
 
+
   actualizar() {
-    this.cambiarNum(this.idUsuario, this.numNew);
+    this.cambiarNombre(this.idUsuario, this.nuevoNombre);
   }
 
   usuarios: any;
-  cambiarNum(id: string, numNew: string) {
-    this.http.cambiarNum(id, numNew).then(
+
+  cambiarNombre(id: string, nombre: string) {
+    this.http.cambiarNombre(id, nombre).then(
       (inv) => {
         console.log(inv);
         this.usuarios = inv;
-        var estatus = inv['telefono'];
-        var password = inv['password'];
-        console.log(estatus);
-        if (estatus == "error") {
-          this.mensajeToast('Ha ocurrido un error, intente más tarde.');
+        var nombre = inv['nombre'];
+       console.log(nombre);
+        if (nombre == "error") {
+          this.mensajeToast('No se pudo actualizar el nombre.');
         } else {
-          this.mensajeToast('Número actualizado');
+          this.mensajeToast('Nombre actualizado actualizado');
           this.route.navigateByUrl('/home');
         }
       },
@@ -66,13 +73,9 @@ export class CambiarnumPage implements OnInit {
         alert("Verifica que cuentes con internet");
       }
     );
-
   }
 
-
   async confirmarContra() {
-
-
     let alert = this.alertCtrl.create({
       header: 'Confirmación',
       subHeader: 'Ingrese su contraseña',
@@ -107,12 +110,6 @@ export class CambiarnumPage implements OnInit {
     (await alert).present();
   }
 
-
-
-
-  ngOnInit() {
-  }
-
   async mensajeToast(mensaje: string) {
     const toast = await this.toastController.create({
       message: mensaje,
@@ -122,6 +119,4 @@ export class CambiarnumPage implements OnInit {
     toast.present();
 
   }
-
-
 }

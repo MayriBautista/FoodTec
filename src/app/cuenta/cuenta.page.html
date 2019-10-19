@@ -19,14 +19,14 @@
       <ion-label position="stacked" class="f-color">
         <ion-icon name="contact"></ion-icon>Nombre
       </ion-label>
-      <ion-input type="text">{{usuario.nombre}}</ion-input>
+      <ion-input type="text"  [(ngModel)]="NewNom">{{usuario.nombre}}</ion-input>
     </ion-item>
 
     <ion-item class="padding-top-5">
       <ion-label position="stacked" class="f-color">
         <ion-icon name="phone-portrait"></ion-icon>Número telefónico
       </ion-label>
-      <ion-input> {{usuario.telefono}} </ion-input>
+      <ion-input type="text" [(ngModel)]="telNew"> {{usuario.telefono}} </ion-input>
     </ion-item>
 
     <ion-item class="padding-top-5">
@@ -38,6 +38,6 @@
   </div>
 
   <div class="padding-top-30 center">
-    <ion-button shape="round" class="new-background-color">Actualizar</ion-button>
+    <ion-button shape="round" class="new-background-color" (click)="verificarDatos()">Actualizar</ion-button>
   </div>
 </ion-content>

@@ -8,14 +8,25 @@ export class HttpmayriService {
   actualizar(contra:string) {
     throw new Error("Method not implemented.");
   }
-
-
-
-  //url: String = "https://itd-foodtec.000webhostapp.com/foodtec/";
- url:String = "http://127.0.0.1:8000/";
-  constructor(public http:HttpClient) { }
-
   
+  
+  
+  //url: String = "https://itd-foodtec.000webhostapp.com/foodtec/";
+  url:String = "http://127.0.0.1:8000/";
+  constructor(public http:HttpClient) { }
+  
+  
+  cambiarNombre(id: string, nombre: string) {
+    var envio = this.url+'updateNombre/'+id+'/'+nombre;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
 
   cambiarContra(id:string,contraAct:string,contraNew:string) {
     var envio =this.url+'updateContra/'+id+'/'+contraAct+'/'+contraNew;
