@@ -28,10 +28,10 @@
       </ion-toolbar> 
 
 
-      <div [hidden]="espera">
+      <div [hidden]="espera" >
         <ion-label class="bold center padding-top-20">PEDIDO EN ESPERA</ion-label>
-        <ion-img style="padding-left:10%; padding-right: 10%; margin-top: 5%; " src="assets/icon/paste.jpg"></ion-img>
-        <div class="mgl-30 center">
+        <div class="mgl-30 center" *ngFor="let pedido of pedidos">
+          <ion-img style="padding-left:10%; padding-right: 10%; margin-top: 5%; " src="{{ruta}}{{pedidos.ruta_imagen}}"></ion-img>
         <ion-grid>
             <ion-row>
               <ion-col align-self-start>
@@ -41,32 +41,32 @@
               </ion-col>
               <ion-col>
                 <div class="left italic">
-                  11 de junio de 2019 1:52 p.m.
-                  Pedido #RP2
+                  {{pedido.fecha}}
+                  Pedido #RP{{pedido.idPedido}}
                 </div>
               </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
                   <div class="left">
-                    Paste Rey 
+                    {{pedido.producto}}
                   </div>
                 </ion-col>
                 <ion-col>
                   <div class="left italic">
-                    1 pieza 
+                    Piezas: {{pedido.cantidad}}
                   </div>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
                   <div class="left">
-                    Repartidor 
+                    Repartidor:
                   </div>
                 </ion-col>
                 <ion-col>
                   <div class="left italic">
-                    Carlos Herrera
+                    Undefined
                   </div>
                 </ion-col>
             </ion-row>
@@ -78,7 +78,7 @@
               </ion-col>
               <ion-col>
                 <div class="left italic">
-                  $18.00
+                  ${{pedido.totalPedido}} MXN
                 </div>
               </ion-col>
             </ion-row>

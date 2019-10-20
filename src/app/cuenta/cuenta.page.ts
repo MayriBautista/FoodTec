@@ -34,7 +34,6 @@ export class CuentaPage implements OnInit {
     storage.get("password").then((val) => {
       console.log('contra', val);
       this.pass = val;
-
     });
   }
 

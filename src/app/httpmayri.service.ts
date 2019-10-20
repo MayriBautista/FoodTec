@@ -5,10 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpmayriService {
-  actualizar(contra:string) {
-    throw new Error("Method not implemented.");
-  }
-  
   
   
   //url: String = "https://itd-foodtec.000webhostapp.com/foodtec/";
@@ -76,6 +72,24 @@ export class HttpmayriService {
       });
     });
   }
+
+
+  traerPedidos(id: string) {
+    var envio =this.url+'pedidos/'+id;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+
+
+
+
   
   desactiva(correo:string) {
     var envio =this.url+'desactivarCuenta/'+correo;
