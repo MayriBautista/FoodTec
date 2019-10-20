@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'menurestaurante/:idRes/:nombre/:direccion/:telefono/:ruta', loadChildren: './menu-restaurante/menu-restaurante.module#MenuRestaurantePageModule' },
   { path: 'compra/:idRes/:idProducto/:nombre/:desc/:precio', loadChildren: './compra/compra.module#CompraPageModule' },
   { path: 'compraexit/:cantidad/:total/:nombre', loadChildren: './compraexit/compraexit.module#CompraexitPageModule' },
-  { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },  { path: 'cambiarnombre', loadChildren: './cambiarnombre/cambiarnombre.module#CambiarnombrePageModule' },
+  { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },
 
 
 
