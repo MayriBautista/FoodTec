@@ -19,14 +19,14 @@
       <ion-label position="stacked" class="f-color">
         <ion-icon name="contact"></ion-icon>Nombre
       </ion-label>
-      <ion-input type="text"  [(ngModel)]="NewNom">{{usuario.nombre}}</ion-input>
+      <ion-input type="text" value={{usuario.nombre}} [(ngModel)]="nombre"></ion-input>
     </ion-item>
 
     <ion-item class="padding-top-5">
       <ion-label position="stacked" class="f-color">
         <ion-icon name="phone-portrait"></ion-icon>Número telefónico
       </ion-label>
-      <ion-input type="text" [(ngModel)]="telNew"> {{usuario.telefono}} </ion-input>
+      <ion-input type="text" [(ngModel)]="telNew" disabled> {{usuario.telefono}} </ion-input>
     </ion-item>
 
     <ion-item class="padding-top-5">

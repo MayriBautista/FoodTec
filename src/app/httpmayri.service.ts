@@ -52,6 +52,18 @@ export class HttpmayriService {
     });
   }
 
+  cambiarNom(id:string,nombre:string) {
+    var envio =this.url+'updateNombre/'+id+'/'+nombre;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
   insertarPedido(idUsuario:string, idRestaurante:string, idProducto:string, precio:string, idPago:string, especificaciones:string, totalc:string, ubicacion:string, cantidad:string) {
                                           
     var envio =this.url+'insertarPedido/'+idUsuario+'/'+idRestaurante+'/'+idProducto+'/'+precio+'/'+idPago+'/'+especificaciones+'/'+cantidad+"/"+totalc+'/'+ubicacion;
