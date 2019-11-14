@@ -56,11 +56,12 @@ export class CambiarcontraPage implements OnInit {
       (inv) => { 
        console.log(inv);  
        this.usuarios = inv;   
-       var estatus = inv['password'];
-       if(estatus == "wrong"){
+       var pass = inv['password'];
+       if(pass == "wrong"){
           this.mensajeToast('La contraseña actual no coincide con nuestro registro');
         } else {
           this.mensajeToast('Contraseña actualizada');
+          this.storage.set('password',pass);
           this.route.navigateByUrl('/home');
         }
       },

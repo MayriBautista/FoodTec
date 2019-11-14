@@ -86,6 +86,30 @@ export class HttpmayriService {
     });
   }
 
+  traerPedidosComp(id: string) {
+    var envio =this.url+'pedidosEntregados/'+id;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+  traerPedidosPend(id: string) {
+    var envio =this.url+'pedidosPendientes/'+id;
+    return new Promise((resolve, reject) => {
+      this.http.get(envio)
+      .subscribe(data => {
+        resolve(data);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
 
 
 
